@@ -1,0 +1,40 @@
+ul, ol
+  margin: 0
+  padding: 0
+  list-style-type: none
+
+a
+  &:focus, &:hover
+    text-decoration: none
+
+a, input, textarea, button
+  &:focus
+    text-decoration: none
+    outline: none
+
+i, span, a
+  display: inline-block
+
+button
+  padding: 0
+  background-color: transparent
+  border: none
+
+img
+  max-width: 100%
+  height: auto
+
+section
+  margin-bottom: 4rem
+.df
+  display: flex
+.jcc
+  justify-content: center
+.mb0
+  margin-bottom: 0
+
+
+header
+  margin-bottom: 1.5rem
+  @include media-breakpoint-up(xl)
+    margin-bottom: 5rem

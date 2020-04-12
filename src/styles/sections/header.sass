@@ -1,0 +1,180 @@
+.header
+  position: relative
+  height: 100vh
+  padding-top: 20vh
+  @include media-breakpoint-up(sm)
+    padding-top: 5vh
+  @include media-breakpoint-up(md)
+    padding-top: 20vh
+  &::before, &::after
+    content: ''
+    position: absolute
+    z-index: -2
+    top: 0
+    right: 0
+    background-position: 0% 50%
+    background-size: cover
+    background-repeat: no-repeat
+  &::before
+    width: 80%
+    height: 100%
+    background-image: url(../assets/images/header-shape-bg-back.svg)
+    @include media-breakpoint-up(sm)
+      width: 50%
+  &::after
+    width: 40%
+    height: 100%
+    background-image: url(../assets/images/header-shape-bg-front.svg)
+    @include media-breakpoint-up(sm)
+      width: 30%
+  &__stamp
+    display: none
+    position: absolute
+    left: 3.5%
+    bottom: 3%
+    z-index: -3
+    @include media-breakpoint-up(sm)
+      display: inline-block
+
+.hero
+  position: absolute
+  right: 10%
+  bottom: 0
+  width: 80vw
+  height: 60vw
+  background-image: url(../assets/images/hero.webp)
+  background-repeat: no-repeat
+  background-position: bottom
+  background-size: 70% auto
+  @include media-breakpoint-up(sm)
+    right: 2%
+    width: 45vw
+    height: 35vw
+  @include media-breakpoint-up(lg)
+    width: 40vw
+    height: 30vw
+  @include media-breakpoint-up(xl)
+    width: 55vh
+    height: 45vh
+  &::before
+    content: ''
+    z-index: -1
+    position: absolute
+    bottom: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background-image: url(../assets/images/egg.svg)
+    background-repeat: no-repeat
+    background-position: 50% 101%
+    background-size: 100% auto
+
+.bubble
+  z-index: -2
+  position: absolute
+  border-radius: 50%
+  &-big_blue
+    display: none
+    background: linear-gradient(45deg, #79f2ff, rgb(56, 121, 255))
+    @include media-breakpoint-up(md)
+      display: block
+      width: 150px
+      height: 150px
+      left: 55%
+      top: 40%
+    @include media-breakpoint-up(lg)
+      width: 200px
+      height: 200px
+      left: 43%
+      top: 50%
+    @include media-breakpoint-up(xl)
+      left: 43%
+      top: 57%
+  &_one
+    z-index: -4
+    width: 75px
+    height: 75px
+    background: linear-gradient(rgba(254,132,100,0.5),rgba(254,110,154,0.5))
+    left: 3%
+    bottom: 55%
+    @include media-breakpoint-up(sm)
+      left: 50%
+      bottom: 55%
+    @include media-breakpoint-up(md)
+      left: 5%
+      bottom: 15%
+    @include media-breakpoint-up(lg)
+      left: 5%
+      bottom: -5%
+    @include media-breakpoint-up(xl)
+      left: 5%
+      bottom: -10%
+  &_two
+    width: 40px
+    height: 40px
+    background: rgba(226,158,25,.55)
+    top: 22%
+    left: 55%
+    @include media-breakpoint-up(sm)
+      top: 7%
+      left: 35%
+    @include media-breakpoint-up(md)
+      top: 70%
+      left: 45%
+    @include media-breakpoint-up(lg)
+      top: 60%
+      left: 30%
+  &_three
+    z-index: -4
+    width: 35px
+    height: 35px
+    background: linear-gradient(rgba(51,200,193,0.5),rgba(17,155,210,0.5))
+    bottom: 45%
+    left: 40%
+    @include media-breakpoint-up(sm)
+      bottom: 30%
+      left: 25%
+    @include media-breakpoint-up(lg)
+      bottom: 12%
+      left: 15%
+  &_four
+    width: 20px
+    height: 20px
+    background: linear-gradient(rgba(54,28,193,0.5),rgba(46,130,239,0.5))
+    bottom: 25%
+    left: 20%
+    @include media-breakpoint-up(sm)
+      bottom: 0%
+      left: 40%
+    @include media-breakpoint-up(lg)
+      bottom: 5%
+      left: 35%
+
+.cube
+  z-index: -2
+  position: absolute
+  display: none
+  @include media-breakpoint-up(xl)
+    display: block
+  &::before
+    position: absolute
+    content: ''
+    border-radius: 1rem
+    transform: rotate(15deg)
+  &_one
+    bottom: -50%
+    right: 20%
+    &::before
+      width: 80px
+      height: 80px
+      background: linear-gradient(rgba(51,200,193,0.5), rgba(17,155,210,0.5))
+  &_two
+    bottom: -9%
+    right: 20%
+    @include media-breakpoint-up(xl)
+      bottom: -50%
+      right: 35%
+    &::before
+      width: 120px
+      height: 120px
+      background: linear-gradient(rgba(54,28,193,0.5), rgba(46,130,239,0.5))

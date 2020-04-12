@@ -1,0 +1,191 @@
+$line: #e0e3ea
+$year: #ff8c73
+
+.experience
+  @include media-breakpoint-up(xl)
+    margin-bottom: 10rem
+
+.timeline
+  display: flex
+  width: 100%
+  flex-wrap: wrap
+  position: relative
+  padding: 0 10%
+  @include media-breakpoint-only(md)
+    padding: 0
+  &::before
+    position: absolute
+    content: ''
+    left: 50%
+    width: 2px
+    height: 100%
+    background-color: $line
+
+.stage
+  position: relative
+  width: 100%
+  display: flex
+  flex-direction: column
+  align-items: center
+  margin-bottom: 3rem
+  // perspective: 700px
+  @include media-breakpoint-up(md)
+    flex-direction: row
+  & > *
+    width: 100%
+  &__title
+    display: none
+    &-text
+      color: $green
+      margin-bottom: 0
+    @include media-breakpoint-up(md)
+      display: block
+      width: 40%
+  &__year
+    position: relative
+    text-align: center
+    margin-bottom: 3rem
+    @include media-breakpoint-up(md)
+      width: 20%
+      margin-bottom: 0
+    &::before
+      display: none
+      z-index: -1
+      position: absolute
+      content: ''
+      top: 50%
+      width: 65%
+      height: 2px
+      background-color: $line
+      @include media-breakpoint-up(md)
+        display: block
+  &__description
+    border: 1px solid $gray-300
+    // transform-style: preserve-3d
+    @include media-breakpoint-up(md)
+      width: 40%
+    &-title
+      display: block
+      margin: 1rem 0
+      font-weight: 600
+      color: $green
+      @include media-breakpoint-up(md)
+        display: none
+  &:nth-of-type(odd) // нечетные
+    .stage
+      &__year::before
+        left: 50%
+      &__title-text
+        padding-right: 1rem
+        text-align: right
+      &__description
+        // transform: rotateX(0deg) rotateY(-20deg)
+  &:nth-of-type(even) // четные
+    .stage
+      &__year::before
+        right: 50%
+      &__title
+        @include media-breakpoint-up(md)
+          order: 1
+      &__title-text
+        padding-left: 1rem
+      &__description
+        // transform: rotateY(20deg)
+        @include media-breakpoint-up(md)
+          order: -1
+
+.year-circle
+  position: relative
+  width: 60px
+  line-height: 56px
+  text-align: center
+  border: 2px solid $line
+  font-size: 1.125rem // 18px
+  color: $year
+  border-radius: 50%
+  background-color: #fff
+  outline: none
+  transition: all .1s ease-in-out
+  &:focus
+    border-color: $year
+
+.album-google
+  display: flex
+  flex-flow: column wrap
+  align-items: center
+  & > *
+    margin-bottom: 1rem
+  &__title
+    font-weight: 600
+    color: $gray-700
+    position: relative
+    &::before
+      content: ''
+      display: inline-block
+      vertical-align: middle
+      margin-right: 1.5rem
+      width: 1.5rem
+      height: 1.5rem
+      background-image: url('../assets/images/google-photo-icon.png')
+      background-size: 100%
+
+.collapse-btn
+  align-self: flex-end
+  @include media-breakpoint-up(md)
+    align-self: center
+  & > svg
+    width: 2.25rem
+    height: 2.25rem
+    fill: $gray-600
+    transition: fill .2s ease-in-out
+    @include media-breakpoint-up(xl)
+      width: 1.5rem
+      height: 1.5rem
+  &:not(.collapsed) > svg
+    transform: rotate(180deg)
+  @media (hover: hover) and (pointer: fine)
+    &:hover > svg
+      cursor: pointer
+    &:focus > svg
+      fill: $year
+
+.progress-list
+  padding-right: 1rem
+  &__item
+    display: flex
+    align-items: center
+    margin-bottom: .5rem
+.progress_stage
+  position: relative
+  left: -.4rem
+  width: 100%
+  height: .5rem
+  border-radius: 0 .25rem .25rem 0
+.progress-icon
+  position: relative
+  z-index: 1
+  width: 2.5rem
+  height: 2.5rem
+  &_html
+    fill: lighten($cyan, 10)
+  &_css
+    fill: lighten($blue, 10)
+  &_js
+    fill: lighten($yellow, 10)
+    background-color: $white
+  &_react
+    fill: lighten($indigo, 10)
+    background-color: $white
+.progress-bar
+  width: 0
+  border-radius: 0 .25rem .25rem 0
+  transition: width .7s ease-in-out
+  .progress-list__item:nth-of-type(1) &
+    transition-delay: .3s
+  .progress-list__item:nth-of-type(2) &
+    transition-delay: .6s
+  .progress-list__item:nth-of-type(3) &
+    transition-delay: .9s
+  .progress-list__item:nth-of-type(4) &
+    transition-delay: 1.2s
+

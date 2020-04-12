@@ -1,0 +1,60 @@
+.gallery-container
+  max-width: 720px
+  width: 100%
+  margin-bottom: 1.5rem
+.gallery
+  display: flex
+  flex-wrap: wrap
+  margin: -1.66%
+  margin-bottom: 1.5rem
+  &_p
+    display: flex
+    flex-wrap: wrap
+    flex-basis: 100%
+    margin: 0
+  &__item
+    position: relative
+    width: 30%
+    flex-basis: 30%
+    padding-bottom: 30%
+    margin: 1.66%
+  &__link
+    position: absolute
+    width: 100%
+    height: 100%
+    border-radius: $border-radius-lg
+    transition: all .2s ease-in-out
+    &:hover, &:focus
+      box-shadow: 0 3px 4px 1px $gray-600
+    &_p
+      position: absolute
+      width: 100%
+      height: 100%
+      border-radius: 1rem
+      transition: box-shadow .2s ease-in-out
+      transform-style: preserve-3d
+      perspective: 700px
+      &:focus .gallery__image_p
+        transform: rotateX(20deg) rotateY(20deg)
+    &_blank
+      position: absolute
+      width: 100%
+      height: 100%
+      border: $border-width dashed $border-color
+      border-radius: 1rem
+      background: #fff
+      transition: border-color .1s ease-in-out
+      outline: none
+      &:focus
+        border-color: #ff8c73
+  &__image
+    display: inline-block
+    height: 100%
+    object-fit: cover
+    border-radius: $border-radius-lg
+    &_p
+      height: 100%
+      object-fit: cover
+      border-radius: 1rem
+      transition: transform .1s ease-in-out
+      outline: none

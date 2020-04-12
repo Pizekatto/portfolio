@@ -1,0 +1,53 @@
+@mixin transparent-button-variant($hover-color, $color, $background: lighten($hover-color, 38))
+
+	color: $hover-color
+	// border-color: transparent
+	background-color: $background
+
+	@include hover()
+		color: $hover-color
+		background-color: $background
+
+	&:focus,&.focus
+		color: $hover-color
+		box-shadow: 0 0 1px $btn-focus-width darken($background, 20%)
+
+	&.disabled,&:disabled
+		color: lighten($color, 20)
+		background-color: $background
+
+	&:not(:disabled):not(.disabled):active,
+	&:not(:disabled):not(.disabled).active,
+	.show>&.dropdown-toggle
+		color: $hover-color
+		background-color: $background
+		&:focus
+			box-shadow: 0 0 0 $btn-focus-width darken($background, 20%)
+
+	@include media-breakpoint-up(xl)
+		color: $color
+		background-color: transparent
+
+
+@mixin button-outline-variant($hover-color, $color)
+
+	color: $color
+	border: $btn-focus-width solid transparent
+
+	@include hover()
+		color: $hover-color
+		border-color: lighten($hover-color, 30)
+
+	&:focus,
+	&.focus
+		border-color: lighten($hover-color, 30)
+		box-shadow: none
+
+	&.disabled,
+	&:disabled
+		color: lighten($color, 20)
+
+	&:not(:disabled):not(.disabled):active,
+	&:not(:disabled):not(.disabled).active,
+	.show > &.dropdown-toggle
+		color: $hover-color

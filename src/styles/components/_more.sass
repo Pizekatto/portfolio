@@ -1,0 +1,79 @@
+.more
+  &-btn
+    display: flex
+    justify-content: center
+    align-items: center
+    border-radius: 50%
+    user-select: none
+    width: 3rem
+    height: 3rem
+    outline: none
+    cursor: pointer
+    transition: $transition-base
+    &:hover, &:focus
+      background-color: lighten(theme-color-level(primary, -1), 38)
+  &-dot
+    display: block
+    background-color: #aab8c2
+    margin: auto
+    width: .375rem // 6px
+    height: .375rem
+    margin-bottom: .375rem
+    border-radius: 50%
+    transition: background-color 0.3s
+    &:last-child
+      margin-bottom: 0
+    .show &, .more-btn:hover &
+      background-color: #516471
+  &-menu
+    position: absolute
+    top: 100%
+    z-index: 900
+    float: left
+    padding: .5rem 0
+    margin-top: .5rem
+    background-color: #fff
+    border-radius: .75rem
+    box-shadow: $box-shadow
+    opacity: 0
+    visibility: hidden
+    transform: translateY(15px)
+    transition: all 0.1s ease-out
+    pointer-events: none
+    outline: none
+    .show &
+      opacity: 1
+      visibility: visible
+      transform: translate(0)
+      pointer-events: auto
+    &-item:hover, .more-menu-link:focus
+      background-color: $gray-100
+      color: inherit
+    &-link
+      min-width: 100%
+      color: $gray-700
+      cursor: pointer
+      display: block
+      font-size: .875rem
+      padding: .5rem 1rem
+      position: relative
+      white-space: nowrap
+      background: none
+      border: none
+      overflow: visible
+      user-select: none
+      width: 100%
+      outline: none
+      &:hover
+        color: inherit
+
+
+.list-icon
+  display: inline-block
+  position: relative
+  top: -3px
+  fill: $blue
+  margin-right: .5rem
+  width: 1rem
+  height: 1rem
+

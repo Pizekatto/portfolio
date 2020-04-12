@@ -1,0 +1,24 @@
+
+// 100 Extra Light or Ultra Light
+// 200 Light or Thin; 300 Book or Demi
+// 400 Regular or Normal
+// 500 Medium
+// 600 Semibold or Demibold
+// 700 Bold
+// 800 Black or Extra Bold or Heavy
+// 900 Extra Black or Fat or Ultra Black
+
+@mixin font($f-name, $f-style, $f-weight, $f-url)
+  @font-face
+    font-family: $f-name
+    font-style: $f-style
+    font-weight: $f-weight
+    src: url($f-url) format('woff2')
+    font-display: swap
+
+@include font($font, normal, 400, '../assets/fonts/montserrat-v14-latin_cyrillic-regular.woff2')
+@include font($font, italic, 400, '../assets/fonts/montserrat-v14-latin_cyrillic-italic.woff2')
+@include font($font, normal, 600, '../assets/fonts/montserrat-v14-latin_cyrillic-600.woff2')
+@include font($font, normal, 700, '../assets/fonts/montserrat-v14-latin_cyrillic-700.woff2')
+@include font($font, normal, 800, '../assets/fonts/montserrat-v14-latin_cyrillic-800.woff2')
+@include font($font, italic, 900, '../assets/fonts/montserrat-v14-latin_cyrillic-900italic.woff2')

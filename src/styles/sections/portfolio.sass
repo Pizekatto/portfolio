@@ -1,0 +1,98 @@
+.portfolio
+  position: relative
+  &__stamp
+    display: none
+    position: absolute
+    left: calc(100vh/5)
+    bottom: 5%
+    transform-origin: left bottom 0
+    transform: rotateZ(-90deg)
+    z-index: -4
+    @include media-breakpoint-up(lg)
+      display: inline-block
+  &::before
+    content: ''
+    display: none
+    z-index: -2
+    position: absolute
+    top: -10%
+    left: 0
+    width: 45%
+    height: 100%
+    background-image: url(/assets/images/shape-from-left.svg)
+    background-repeat: no-repeat
+    background-position: 0% 0%
+    background-size: contain
+    @include media-breakpoint-up(sm)
+      display: block
+    @include media-breakpoint-up(md)
+      top: -7%
+      width: 35%
+    @include media-breakpoint-up(lg)
+      top: 0
+    @include media-breakpoint-up(xl)
+      top: -20%
+  &__info
+    height: 100px
+  &::after
+    content: 'Portfolio'
+    display: none
+    z-index: -1
+    position: absolute
+    left: calc(100vh/5)
+    bottom: 5%
+    transform-origin: left bottom 0
+    transform: rotate(-90deg)
+    font-size: calc(100vh/8.5)
+    font-weight: 900
+    text-transform: uppercase
+    color: lighten($gray-200, 2)
+    cursor: default
+    user-select: none
+    @include media-breakpoint-up(lg)
+      display: inline-block
+
+.stripes
+  $stripes-width: 200px
+  z-index: -1
+  position: absolute
+  bottom: -15%
+  right: 15%
+  width: $stripes-width
+  height: 25px
+  background: linear-gradient(90deg, rgba(200, 191, 51, 0.66), rgba(210, 92, 17, 0.79))
+  border-radius: 1rem
+  transform: rotate(-80deg) scale(0.6)
+  @include media-breakpoint-up(sm)
+    bottom: -10%
+    right: 15%
+  @include media-breakpoint-up(md)
+    transform: rotate(-80deg) scale(.8)
+    bottom: -16%
+    right: 17%
+  @include media-breakpoint-up(lg)
+    transform: rotate(-80deg) scale(.9)
+    bottom: -10%
+    right: 17%
+  @include media-breakpoint-up(xl)
+    bottom: 10%
+    right: 15%
+  &::before, &::after
+    display: block
+    position: absolute
+    content: ''
+    border-radius: 1rem
+  &::before
+    bottom: -60px
+    left: 100px
+    width: $stripes-width
+    height: 20px
+    background: linear-gradient(90deg, rgba(51, 200, 100, 0.64), rgba(17, 197, 210, 0.68))
+    transform: rotate(15deg)
+  &::after
+    bottom: -150px
+    left: 200px
+    width: $stripes-width
+    height: 15px
+    background: linear-gradient(90deg, rgba(200, 51, 193, 0.5), rgba(17, 188, 210, 0.64))
+    transform: rotate(30deg)

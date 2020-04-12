@@ -1,0 +1,83 @@
+.card
+  display: flex
+  flex-direction: column
+  padding: 1rem
+  border: none
+  border-radius: 1rem
+  background-color: $card-bg // #fff
+  box-shadow: $box-shadow-sm
+  outline: none
+  &_hero
+    position: relative
+    background-color: transparent
+    background-repeat: no-repeat
+    box-shadow: none
+    @include media-breakpoint-up(sm)
+      padding: 2rem
+    @include media-breakpoint-up(md)
+      background-image: url(../assets/images/header-card-shape.svg)
+      background-size: auto 70%
+      background-position: 1.25rem 1.25rem
+      background-color: $card-bg
+      box-shadow: $box-shadow-sm
+    @include media-breakpoint-up(lg)
+      background-size: auto 85%
+    // @if $animation
+    // 	animation: fly-header 2s ease-in-out infinite alternate
+
+.card__title
+  margin-bottom: $card-spacer-y // .75rem
+  &_hello
+    display: block
+    font-weight: 600
+    color: $green
+    letter-spacing: 0.125rem
+    margin-bottom: 1rem
+  &_name
+    display: block
+    font-weight: 800
+    text-transform: uppercase
+    margin-bottom: .5rem
+.card__subtitle
+  margin-top: -$card-spacer-y / 2
+  margin-bottom: 0
+  &_hero
+    margin-bottom: 1rem
+  &_italic
+    font-weight: 900
+    text-transform: uppercase
+    font-style: italic
+    line-height: 2.4rem
+  &_code
+    margin-left: .5rem
+    font-family: Consolas, monospace
+    font-weight: 700
+    line-height: 2.4rem
+    color: $pink
+    &::after
+      content: '_'
+      @if $animation
+        animation: cursor 1.2s infinite
+
+
+.card__text:last-child
+  margin-bottom: 0
+
+.card__link
+  @include hover()
+    text-decoration: none
+  + .card__link
+    margin-left: $card-spacer-x
+
+.card__btn_hero
+  margin-bottom: .5rem
+  @include media-breakpoint-up(sm)
+    align-self: flex-end
+
+.card__btn_more
+  display: none
+  position: absolute
+  top: 1.25rem
+  right: 1.25rem
+  @include media-breakpoint-up(xl)
+    display: block

@@ -1,0 +1,151 @@
+footer
+  padding: 90px 0 40px
+  border-top: 1px solid $gray-300
+  color: $gray-600
+  @include media-breakpoint-up(xl)
+    padding: 90px 0 80px
+  & *::selection
+    color: #fff
+    background: #ff63ab
+.footer
+  display: flex
+  flex-wrap: wrap
+  &-item
+    flex: 0 0 $part-12
+    max-width: $part-12
+    display: flex
+    justify-content: flex-start
+    margin-bottom: 3rem
+    @include media-breakpoint-up(sm)
+      flex: 0 0 $part-4
+      max-width: $part-4
+      justify-content: center
+    &_mail
+      @include media-breakpoint-up(xl)
+        justify-content: flex-end
+    &__block
+      margin-left: 4rem
+      @include media-breakpoint-up(sm)
+        margin-left: 0
+  &-title
+    margin-bottom: 0
+    padding-bottom: .5rem
+    font-size: .875rem
+    font-weight: 800
+    letter-spacing: 1px
+    text-transform: uppercase
+    @include media-breakpoint-up(sm)
+      font-weight: 400
+    @include media-breakpoint-up(xl)
+      font-size: .75rem
+    &_write-me
+      @include media-breakpoint-up(xl)
+        padding-left: 1rem
+    &_name
+      position: relative
+      &::after
+        display: inline-block
+        position: absolute
+        content: ''
+        top: -11px
+        right: -45px
+        width: 2rem
+        height: 2rem
+        background-image: url('../assets/images/smile.png')
+        background-size: 100%
+  &-link
+    color: inherit
+    font-size: 1.125rem
+    margin-top: .5rem
+    &:hover, &:focus
+      color: #000
+    &:focus
+      color: #ff63ab
+    @include media-breakpoint-up(sm)
+      margin-top: 1.5rem
+    @include media-breakpoint-up(xl)
+      font-size: 1rem
+      margin: 0
+    &_tel
+      @include media-breakpoint-up(xl)
+        margin-top: 1rem
+  &-mail
+    border-radius: $border-radius-lg
+    transition: $transition-base
+    &:focus
+      outline: none
+    @include media-breakpoint-up(xl)
+      padding: 1rem
+      &:hover
+        background-color: $gray-200
+        > .footer-mail__copy
+          opacity: 1
+    &__copy
+      display: none
+      padding: .25rem
+      margin-left: 1rem
+      vertical-align: middle
+      border-radius: $border-radius-lg
+      font-size: .75rem
+      color: #fff
+      background-color: #ff63ab
+      transition: opacity .2s ease-in-out
+      cursor: pointer
+      &:focus
+        opacity: 1
+      &:active
+        transform: translateY(1px)
+      @include media-breakpoint-up(xl)
+        display: inline-block
+        opacity: 0
+.profile-list
+  display: flex
+  margin-top: .75rem
+  @include media-breakpoint-up(xl)
+    margin-top: .5rem
+.link-icon
+  $link-icon-size: 3rem
+  width: $link-icon-size
+  height: $link-icon-size
+  transition: $transition-base
+  margin-right: 1rem
+  @include media-breakpoint-up(xl)
+    margin-right: .5rem
+    width: $link-icon-size * 0.625
+    height: $link-icon-size * 0.625
+  &:focus
+    outline: none
+  & > svg
+    height: 100%
+    transition: $transition-base
+  &_github
+    fill: #24292e
+    @media (hover: hover) and (pointer: fine)
+      fill: $gray-400
+      &:hover, &:focus
+        > svg
+          fill: #24292e
+  &_linked-in
+    fill: #0077b5
+    @media (hover: hover) and (pointer: fine)
+      fill: $gray-400
+      &:hover, &:focus
+        > svg
+          fill: #0077b5
+  &_hh
+    text-align: center
+    border-radius: 50%
+    background-color: red
+    @media (hover: hover) and (pointer: fine)
+      background-color: $gray-400
+      &:hover, &:focus
+        background-color: red
+    &::before
+      content: 'hh'
+      color: $white
+      font-size: 1.25rem
+      line-height: $link-icon-size
+      @include media-breakpoint-up(xl)
+        font-size: .875rem
+        line-height: $link-icon-size * 0.625
+

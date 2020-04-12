@@ -1,0 +1,85 @@
+.btn
+  display: inline-block
+  font-family: $btn-font-family // null
+  font-weight: $btn-font-weight // 600 override
+  color: gray("700")
+  text-align: center
+  white-space: $btn-white-space // null
+  vertical-align: middle
+  cursor: if($enable-pointer-cursor-for-buttons, pointer, null)
+  user-select: none
+  background-color: transparent
+  border: $btn-border-width solid transparent // 1px
+  // 0.375rem (6px), 0.75rem (12px), 1rem, 1.5, 0.25rem (4px)
+  @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-line-height, $btn-border-radius)
+  @include transition($btn-transition)
+
+  @include hover()
+    text-decoration: none
+    color: gray("700")
+  &_card-hero
+    display: none
+    position: relative
+    &::before
+      display: none
+      position: absolute
+      content: ''
+      top: 6px
+      left: -3rem
+      width: 1.5rem
+      height: 1.5rem
+      background-image: url('../assets/images/hand.png')
+      background-size: 100%
+      // content: '\1F44D'
+    @include media-breakpoint-up(md)
+      display: inline-block
+      &::before
+        display: inline-block
+    @include media-breakpoint-up(xl)
+      &::before
+        display: none
+      &:hover::before
+        display: inline-block
+
+  &:focus,
+  &.focus
+    outline: none
+    box-shadow: $btn-focus-box-shadow
+
+
+  // Disabled comes first so active can properly restyle
+  &.disabled,
+  &:disabled
+    opacity: $btn-disabled-opacity
+    @include box-shadow(none)
+
+
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active
+    &:focus
+      @include box-shadow($btn-focus-box-shadow, $btn-active-box-shadow)
+
+// Future-proof disabling of clicks on `<a>` elements
+a.btn.disabled,
+fieldset:disabled a.btn
+  pointer-events: none
+
+.btn_sm // 0.25rem (4px), 0.5rem, 0.875rem (14px), 1.5, 0.2rem
+  @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-line-height-sm, $btn-border-radius-sm)
+
+.btn_md // 0.5rem, 1rem, 1.125rem (18px), 1.5, 0.3rem
+  @include button-size($btn-padding-y-lg, $btn-padding-x-lg, 1.125rem, $btn-line-height-lg, $btn-border-radius-lg)
+
+.btn_lg // 0.5rem, 1rem, 1.25rem (20px), 1.5, 0.3rem
+  @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-line-height-lg, $btn-border-radius-lg)
+
+$theme-colors-light: ("primary": theme-color-level(primary, -1),"success": theme-color-level(success, -1))
+
+@each $color, $value in $theme-colors-light
+  .btn_#{$color}
+    @include transparent-button-variant($value, gray("700"))
+
+@each $color, $value in $theme-colors-light
+  .btn_outline_#{$color}
+    @include button-outline-variant($value, gray("700"))
+
