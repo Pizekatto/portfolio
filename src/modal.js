@@ -5,7 +5,7 @@ export class Modal {
     this.modal = this.create()
   }
 
-  animation_speed = 500
+  animation_speed = 350
   scrollBarWidth = window.innerWidth - document.documentElement.clientWidth
 
   handleClose = e => {
@@ -38,7 +38,7 @@ export class Modal {
 
     modal.addEventListener('click', this.handleClose)
     document.addEventListener('keydown', this.handleKeyDown)
-    setTimeout(() => this.open(), 100)
+    setTimeout(() => this.open(), 0)
     return modal
   }
 

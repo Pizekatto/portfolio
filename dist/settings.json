@@ -1,0 +1,37 @@
+{
+  "timeline": {
+    "stage-2020": {
+      "id": "stage-2020",
+      "stage-title": "Fronend разработчик",
+      "stage-description": "Изучаю JavaScript, React",
+      "stage-content": {
+        "skills": [
+          {
+            "title": "html",
+            "level": 80,
+            "color": "cyan",
+            "isAnimated": true
+          },
+          {
+            "title": "css",
+            "level": 70,
+            "color": "blue",
+            "isAnimated": true
+          },
+          {
+            "title": "js",
+            "level": 60,
+            "color": "yellow",
+            "isAnimated": true
+          },
+          {
+            "title": "react",
+            "level": 40,
+            "color": "indigo",
+            "isAnimated": true
+          }
+        ]
+      }
+    }
+  }
+}

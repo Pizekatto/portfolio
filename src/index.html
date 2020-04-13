@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Portfolio</title>
-  <meta name="description" content="">
+  <meta name="description" content="Портфолио Сергея Ковальчука">
   <meta http-equiv="x-ua-compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="./assets/images/favicon.png" type="image/png">
@@ -16,12 +16,10 @@
     <div class="container-md df">
       <div class="card card_hero">
         <div class="card__btn_more more">
-          <button id="more-btn" class="more-btn">
-            <div>
-              <span class="more-dot"></span>
-              <span class="more-dot"></span>
-              <span class="more-dot"></span>
-            </div>
+          <button id="more-btn" class="more-btn" aria-label="More info">
+            <span class="more-dot"></span>
+            <span class="more-dot"></span>
+            <span class="more-dot"></span>
           </button>
           <div class="more-menu">
             <ul class="more-menu-items">
@@ -48,13 +46,12 @@
             </ul>
           </div>
         </div>
-        <h1>
-          <span class="h3 card__title card__title_hello">Привет, я</span>
-          <span class="h1 card__title card__title_name">Сергей Ковальчук</span>
+        <h1 class="card-title">
+          <span class="h3 card-title_hello">Привет, я</span>
+          <span class="h1 card-title_name">Сергей Ковальчук</span>
+          <span class="h3 card-subtitle_italic">Frontend</span>
+          <span class="h4 card-subtitle_code">developer</span>
         </h1>
-        <h2 class="card__subtitle card__subtitle_hero">
-          <span class="h3 card__subtitle_italic">Frontend</span><span class="h4 card__subtitle_code">developer</span>
-        </h2>
         <a class="card__btn_hero btn btn_card-hero btn_primary btn_md" href="mailto:sk@ihomepro.ru" target="_blank" id="hireMe">Нанять</a>
       </div>
     </div>
@@ -74,8 +71,8 @@
   <section class="portfolio">
     <header class="container-sm df">
       <div class="section-header">
-        <h3 class="section-subtitle">Проекты</h3>
-        <h2 class="section-title">Портфолио</h2>
+        <h2 class="section-title">Проекты</h2>
+        <h3 class="section-subtitle">Портфолио</h3>
         <ul class="section-line">
           <li></li>
           <li></li>
@@ -86,18 +83,38 @@
     </header>
     <div class="container-sm df jcc">
       <div class="gallery-container">
-        <ul class="gallery_p">
+        <ul class="gallery_p" id="work-gallery">
           <li class="gallery__item">
-            <a class="gallery__link_p" href="#"><img class="gallery__image_p" src="./assets/images/portfolio/1.webp" alt="First work"></a>
+            <a class="gallery__link_p" href="#">
+              <picture>
+                <source srcset="./assets/images/portfolio/1.webp" type="image/webp">
+                <img class="gallery__image_p" src="./assets/images/portfolio/1.png" alt="First work">
+              </picture>
+            </a>
           </li>
           <li class="gallery__item">
-            <a class="gallery__link_p" href="#"><img class="gallery__image_p" src="./assets/images/portfolio/2.webp" alt="Second Work"></a>
+            <a class="gallery__link_p" href="#">
+              <picture>
+                <source srcset="./assets/images/portfolio/2.webp" type="image/webp">
+                <img class="gallery__image_p" src="./assets/images/portfolio/2.png" alt="Second Work">
+              </picture>
+            </a>
           </li>
           <li class="gallery__item">
-            <a class="gallery__link_p" href="#"><img class="gallery__image_p" src="./assets/images/portfolio/3.webp" alt="Third Work"></a>
+            <a class="gallery__link_p" href="#">
+              <picture>
+                <source srcset="./assets/images/portfolio/3.webp" type="image/webp">
+                <img class="gallery__image_p" src="./assets/images/portfolio/3.png" alt="Third Work">
+              </picture>
+            </a>
           </li>
           <li class="gallery__item">
-            <a class="gallery__link_p" href="#"><img class="gallery__image_p" src="./assets/images/portfolio/4.webp" alt="Fourth work"></a>
+            <a class="gallery__link_p" href="#">
+              <picture>
+                <source srcset="./assets/images/portfolio/4.webp" type="image/webp">
+                <img class="gallery__image_p" src="./assets/images/portfolio/4.png" alt="Fourth Work">
+              </picture>
+            </a>
           </li>
           <li class="gallery__item">
             <a class="gallery__link_blank" href="#" aria-label="Blank"></a>
@@ -116,8 +133,8 @@
   <section class="experience">
     <header class="container-sm df">
       <div class="section-header">
-        <h3 class="section-subtitle">Опыт</h3>
-        <h2 class="section-title">Timeline</h2>
+        <h2 class="section-title">Опыт</h2>
+        <h3 class="section-subtitle">Timeline</h3>
         <ul class="section-line">
           <li></li>
           <li></li>
@@ -131,54 +148,59 @@
       <ul class="timeline">
         <li class="stage" id="stage-2011">
           <div class="stage__title">
-            <h5 class="stage__title-text">Инженер по автоматизации</h5>
+            <h4 class="stage__title-text">Инженер по автоматизации</h4>
           </div>
           <div class="stage__year">
             <span class="year-circle" tabindex="0">2011</span>
           </div>
           <div class="stage__description card" id="ex-work" tabindex="-1">
-            <h5 class="stage__description-title">Инженер по автоматизации</h5>
+            <h4 class="stage__description-title">Инженер по автоматизации</h4>
             <p>Автоматизация инженерных систем зданий, умные дома</p>
             <div class="collapse" id="more-info">
               <ul class="gallery">
                 <li class="gallery__item">
                   <a class="gallery__link" href="#">
-                    <img class="gallery__image" src="./assets/images/work/panel-vantage.webp" alt="panel-vantage">
+                    <img class="gallery__image" src="./assets/images/work/sm/vantage.jpg" data-src="./assets/images/work/full-res/vantage.jpg" alt="Vantage">
                   </a>
                 </li>
                 <li class="gallery__item">
                   <a class="gallery__link" href="#">
-                    <img class="gallery__image" src="./assets/images/work/wago.webp" alt="wago">
+                    <img class="gallery__image" src="./assets/images/work/sm/wago.jpg" data-src="./assets/images/work/full-res/wago.jpg" alt="Wago">
                   </a>
                 </li>
                 <li class="gallery__item">
                   <a class="gallery__link" href="#">
-                    <img class="gallery__image" src="./assets/images/work/heli-light.webp" alt="heli-light">
+                    <img class="gallery__image" src="./assets/images/work/sm/heli-light.jpg" data-src="./assets/images/work/full-res/heli-light.jpg" alt="Heli-light">
                   </a>
                 </li>
                 <li class="gallery__item">
                   <a class="gallery__link" href="#">
-                    <img class="gallery__image" src="./assets/images/work/boxes.webp" alt="boxes">
+                    <img class="gallery__image" src="./assets/images/work/sm/boxes.jpg" data-src="./assets/images/work/full-res/boxes.jpg" alt="Boxes">
                   </a>
                 </li>
                 <li class="gallery__item">
                   <a class="gallery__link" href="#">
-                    <img class="gallery__image" src="./assets/images/work/panel-abb.webp" alt="">
+                    <img class="gallery__image" src="./assets/images/work/sm/box.jpg" data-src="./assets/images/work/full-res/box.jpg" alt="Box">
                   </a>
                 </li>
                 <li class="gallery__item">
                   <a class="gallery__link" href="#">
-                    <img class="gallery__image" src="./assets/images/work/neon.webp" alt="neon">
+                    <img class="gallery__image" src="./assets/images/work/sm/abb.jpg" data-src="./assets/images/work/full-res/abb.jpg" alt="ABB">
                   </a>
                 </li>
                 <li class="gallery__item">
                   <a class="gallery__link" href="#">
-                    <img class="gallery__image" src="./assets/images/work/panel.webp" alt="panel">
+                    <img class="gallery__image" src="./assets/images/work/sm/neon.jpg" data-src="./assets/images/work/full-res/neon.jpg" alt="Neon">
                   </a>
                 </li>
                 <li class="gallery__item">
                   <a class="gallery__link" href="#">
-                    <img class="gallery__image" src="./assets/images/work/ipad-on-wall.webp" alt="ipad-on-wall">
+                    <img class="gallery__image" src="./assets/images/work/sm/switch.jpg" data-src="./assets/images/work/full-res/switch.jpg" alt="Switch">
+                  </a>
+                </li>
+                <li class="gallery__item">
+                  <a class="gallery__link" href="#">
+                    <img class="gallery__image" src="./assets/images/work/sm/ipad.jpg" data-src="./assets/images/work/full-res/ipad.jpg" alt="iPad">
                   </a>
                 </li>
               </ul>
@@ -197,37 +219,37 @@
         </li>
         <li class="stage">
           <div class="stage__title">
-            <h5 class="stage__title-text">Инженер / Фрилансер</h5>
+            <h4 class="stage__title-text">Инженер / Фрилансер</h4>
           </div>
           <div class="stage__year">
             <span class="year-circle" tabindex="0">2017</span>
           </div>
           <div class="stage__description card">
-            <h5 class="stage__description-title">Инженер / Фрилансер</h5>
+            <h4 class="stage__description-title">Инженер / Фрилансер</h4>
             <p class="mb-0">Работаю на себя в сфере автоматизации</p>
           </div>
         </li>
         <li class="stage">
           <div class="stage__title">
-            <h5 class="stage__title-text">Верстальщик</h5>
+            <h4 class="stage__title-text">Верстальщик</h4>
           </div>
           <div class="stage__year">
             <span class="year-circle" tabindex="0">2019</span>
           </div>
           <div class="stage__description card">
-            <h5 class="stage__description-title">Верстальщик</h5>
+            <h4 class="stage__description-title">Верстальщик</h4>
             <p class="mb0">Занимаюсь самообразованием по Frontend</p>
           </div>
         </li>
         <li class="stage" id="stage-2020">
           <div class="stage__title">
-            <h5 class="stage__title-text mb-0 text-right">Fronend разработчик</h5>
+            <h4 class="stage__title-text mb-0 text-right">Fronend разработчик</h4>
           </div>
           <div class="stage__year">
             <span class="year-circle" tabindex="0">2020</span>
           </div>
           <div class="stage__description card" id="skills">
-            <h5 class="stage__description-title">Frontend разработчик</h5>
+            <h4 class="stage__description-title">Frontend разработчик</h4>
             <p>Изучаю JavaScript, React</p>
           </div>
         </li>
@@ -239,7 +261,7 @@
     <ul class="footer container-xl">
       <li class="footer-item">
         <div class="footer-item__block">
-          <h6 class="footer-title footer-title_name">Сергей Ковальчук</h6>
+          <h3 class="footer-title footer-title_name">Сергей Ковальчук</h3>
           <a class="footer-link footer-link_tel" href="tel:+79615922103">+7 961 592-21-03</a>
           <div class="footer__links">
           </div>
@@ -247,7 +269,7 @@
       </li>
       <li class="footer-item footer-item_mail">
         <div class="footer-item__block">
-          <h6 class="footer-title footer-title_write-me">Напишите мне</h6>
+          <h3 class="footer-title footer-title_write-me">Напишите мне</h3>
           <div id="footer-mail" class="footer-mail">
             <a class="footer-link" href="mailto:sk@ihomepro.ru" target="_blank">sk@ihomepro.ru</a><button id="copy" class="footer-mail__copy">Скопировать</button>
           </div>
@@ -255,7 +277,7 @@
       </li>
       <li class="footer-item">
         <div class="footer-item__block">
-          <h6 class="footer-title">Профили</h6>
+          <h3 class="footer-title">Профили</h3>
           <ul class="profile-list">
             <li>
               <a class="link-icon link-icon_hh" href="https://krasnodar.hh.ru/resume/7bf0e6a0ff075822870039ed1f4468634c6578" target="_blank" aria-label="HeadHunter" rel="noreferrer">

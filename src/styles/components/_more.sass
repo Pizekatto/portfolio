@@ -1,6 +1,7 @@
 .more
   &-btn
     display: flex
+    flex-direction: column
     justify-content: center
     align-items: center
     border-radius: 50%
@@ -15,14 +16,12 @@
   &-dot
     display: block
     background-color: #aab8c2
-    margin: auto
     width: .375rem // 6px
     height: .375rem
-    margin-bottom: .375rem
     border-radius: 50%
     transition: background-color 0.3s
-    &:last-child
-      margin-bottom: 0
+    &:not(:last-child)
+      margin-bottom: .375rem
     .show &, .more-btn:hover &
       background-color: #516471
   &-menu

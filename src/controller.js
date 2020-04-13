@@ -9,7 +9,7 @@ export default class Controller {
   }
 
   init() {
-    window.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', () => {
       this.model.getSettings()
       .then(this.onSettingsChanged)
       .then(this.handleScrollspy)

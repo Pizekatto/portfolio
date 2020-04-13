@@ -17,6 +17,42 @@ export default class View {
     this._initLocalListeners()
   }
 
+
+  _initLocalListeners() {
+    this.exWork.addEventListener('click', (event) => {
+      if (event.target.tagName === 'IMG') {
+        event.preventDefault()
+        const coordinates = event.target.getBoundingClientRect()
+        const imgSrc = event.target.dataset.src
+        this.openModal(imgSrc, coordinates)
+      }
+    })
+
+    const copyButton = document.getElementById('copy')
+    copyButton.addEventListener('click', (e) => {
+      const emailNode = e.target.previousElementSibling
+      this.copyToClipboard(emailNode)
+      e.target.blur()
+    })
+
+    window.addEventListener('resize',
+      View.throttle(this.switchParallax, 1000)
+    )
+
+    document.getElementById('work-gallery')
+      .addEventListener('click', (e) => {
+        const link = e.target.closest('a')
+        if (link && link.hash === '') {
+          e.preventDefault()
+        }
+      })
+
+    window.addEventListener('load', () => {
+      this.preCacheImages(this.exWork)
+    })
+
+  }
+
   static createElement(tag, ...classNames) {
     const element = document.createElement(tag)
     if (classNames.length) {
@@ -30,7 +66,7 @@ export default class View {
   static debounce(f, ms) {
     let isCooldown = false
 
-    return function() {
+    return function () {
       if (isCooldown) return
       f.apply(this, arguments)
       isCooldown = true
@@ -49,52 +85,21 @@ export default class View {
         return
       }
 
-    f.apply(this, arguments)
-    isThrottled = true
-    setTimeout(function() {
-      isThrottled = false
-      if (savedArgs) {
-        wrapper.apply(savedThis, savedArgs)
-        savedArgs = savedThis = null
-      }
-    }, ms)
-  }
-
-  return wrapper
-  }
-
-  _initLocalListeners() {
-    this.exWork.addEventListener('click', (event) => {
-      if (event.target.tagName === 'IMG') {
-        event.preventDefault()
-        const coordinates = event.target.getBoundingClientRect()
-        const imgSrc = event.target.src
-        this.openModal(imgSrc, coordinates)
-      }
-    })
-
-    const copyButton = document.getElementById('copy')
-    copyButton.addEventListener('click', (e) => {
-      const emailNode = e.target.previousElementSibling
-      this.copyToClipboard(emailNode)
-      e.target.blur()
-    })
-
-    window.addEventListener('resize',
-      View.throttle(this.switchParallax, 1000)
-    )
-
-    document.querySelector('.gallery_p')
-      .addEventListener('click', (e) => {
-        const link = e.target.closest('a')
-        if (link && link.pathname === '/') {
-          e.preventDefault()
+      f.apply(this, arguments)
+      isThrottled = true
+      setTimeout(function () {
+        isThrottled = false
+        if (savedArgs) {
+          wrapper.apply(savedThis, savedArgs)
+          savedArgs = savedThis = null
         }
-      })
+      }, ms)
+    }
 
+    return wrapper
   }
 
-  copyToClipboard(node) {
+  copyToClipboard = (node) => {
     const range = new Range()
     const selection = window.getSelection()
     range.selectNodeContents(node)
@@ -205,5 +210,14 @@ export default class View {
         this.relaxx.destroy()
         this.isParallaxed = false
       }
+  }
+
+  preCacheImages(container) {
+    const images = Array.from(container.querySelectorAll('img'))
+    return images.map(img => {
+      const image = document.createElement('img')
+      image.src = img.dataset.src
+      return image
+    })
   }
 }

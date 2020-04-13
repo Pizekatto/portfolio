@@ -19,17 +19,15 @@
     left: 0
     width: 45%
     height: 100%
-    background-image: url(/assets/images/shape-from-left.svg)
+    background-image: url(../assets/images/shape-from-left.svg)
     background-repeat: no-repeat
     background-position: 0% 0%
     background-size: contain
     @include media-breakpoint-up(sm)
       display: block
     @include media-breakpoint-up(md)
-      top: -7%
+      top: -17%
       width: 35%
-    @include media-breakpoint-up(lg)
-      top: 0
     @include media-breakpoint-up(xl)
       top: -20%
   &__info
@@ -49,7 +47,7 @@
     color: lighten($gray-200, 2)
     cursor: default
     user-select: none
-    @include media-breakpoint-up(lg)
+    @include media-breakpoint-up(xl)
       display: inline-block
 
 .stripes
