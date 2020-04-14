@@ -10,11 +10,12 @@ npm start
 ### Progress
 ![progress](./src/assets/video/progress.gif)
 
-Компонент полностью динамически формируется из JS. Данные уровней прогресса загружаются асинхронно из [settings.json](https://github.com/Pizekatto/portfolio/blob/master/src/settings.json)
+Компонент полностью формируется из JS. Данные уровней прогресса загружаются асинхронно из [settings.json](https://github.com/Pizekatto/portfolio/blob/master/src/settings.json)
 ### ScrollSpy
 Анимация компонента `Progress` происходит с использованием `Intersection Observer API`
-## Ресурсы
+### Parallax
+Объект параллакса динамически создается только на десктопных разрешении вьюпорта, на мобильных разрешениям удаляется.
 Для параллакса использована сторонняя библиотека [rellax](https://github.com/dixonandmoe/rellax)
-
-Также использованы некоторые SASS исходники из Twitter Bootstrap для сброса стилей и миксин [Responsive Font Size](https://github.com/twbs/rfs)
+## Ресурсы
+Использованы некоторые SASS исходники из Twitter Bootstrap для сброса стилей и миксин [Responsive Font Size](https://github.com/twbs/rfs)
 
