@@ -6,7 +6,11 @@ npm start
 ### Collapse
 ![Collapse](./src/assets/video/collapse.gif)
 ### Modal
+Модальное окно открыается при нажатии на картинку из компонента `Collapse`
 ### Progress
+![progress](./src/assets/video/progress.gif)
+
+Компонент полностью динамически формируется из JS. Данные уровней прогресса загружаются асинхронно из [settings.json](https://github.com/Pizekatto/portfolio/blob/master/src/settings.json)
 ### ScrollSpy
 Анимация компонента `Progress` происходит с использованием `Intersection Observer API`
 ## Ресурсы
