@@ -41,18 +41,6 @@ footer
     &_write-me
       @include media-breakpoint-up(xl)
         padding-left: 1rem
-    &_name
-      position: relative
-      &::after
-        display: inline-block
-        position: absolute
-        content: ''
-        top: -11px
-        right: -45px
-        width: 2rem
-        height: 2rem
-        background-image: url('../assets/images/smile.png')
-        background-size: 100%
   &-link
     color: inherit
     font-size: 1.125rem
@@ -103,6 +91,8 @@ footer
   margin-top: .75rem
   & > *:not(:last-child)
     margin-right: 1rem
+    @include media-breakpoint-only(sm)
+      margin-right: .5rem
     @include media-breakpoint-up(xl)
       margin-right: .5rem
   @include media-breakpoint-up(xl)
@@ -112,6 +102,9 @@ footer
   width: $link-icon-size
   height: $link-icon-size
   transition: $transition-base
+  @include media-breakpoint-only(sm)
+    width: $link-icon-size * 0.75
+    height: $link-icon-size * 0.75
   @include media-breakpoint-up(xl)
     width: $link-icon-size * 0.625
     height: $link-icon-size * 0.625
@@ -147,7 +140,18 @@ footer
       color: $white
       font-size: 1.25rem
       line-height: $link-icon-size
+      @include media-breakpoint-only(sm)
+        font-size: 1rem
+        line-height: $link-icon-size * 0.75
       @include media-breakpoint-up(xl)
         font-size: .875rem
         line-height: $link-icon-size * 0.625
+
+  &_pdf
+    fill: #b90605
+    @media (hover: hover) and (pointer: fine)
+      fill: $gray-400
+      &:hover, &:focus
+        > svg
+          fill: #b90605
 

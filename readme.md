@@ -16,6 +16,10 @@ npm start
 ### Parallax
 Объект параллакса динамически создается только на десктопных разрешении вьюпорта, на мобильных разрешениям удаляется.
 Для параллакса использована сторонняя библиотека [rellax](https://github.com/dixonandmoe/rellax)
+### Copy
+![Copy](./src/assets/video/copy.gif)
+
+Можно скопировать адрес почты в буфер обмена
 ## Ресурсы
 Использованы некоторые SASS исходники из Twitter Bootstrap для сброса стилей и миксин [Responsive Font Size](https://github.com/twbs/rfs)
 

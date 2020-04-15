@@ -66,6 +66,10 @@ const plugins = () => {
       {
         from: path.resolve(__dirname, 'src/settings.json'),
         to: path.resolve(__dirname, 'dist')
+      },
+      {
+        from: path.resolve(__dirname, 'src/assets/resume.pdf'),
+        to: path.resolve(__dirname, 'dist/assets')
       }
     ]),
     new MiniCssExtractPlugin({
