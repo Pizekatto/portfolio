@@ -10,10 +10,13 @@ export default class View {
   constructor() {
     this.timeline = document.querySelector('.timeline')
     this.exWork = document.getElementById('ex-work')
+    this.workGallery = document.getElementById('work-gallery')
     new Collapse(this.exWork.querySelector('#more-info'),
                   this.exWork)
     new MoreMenu(document.querySelector('.more'))
+    this.XLResolution = 1200
     this.createParallax('.rellax')
+
     this._initLocalListeners()
   }
 
@@ -29,28 +32,42 @@ export default class View {
     })
 
     const copyButton = document.getElementById('copy')
-    copyButton.addEventListener('click', (e) => {
+    copyButton.addEventListener('click', e => {
       const emailNode = e.target.previousElementSibling
       this.copyToClipboard(emailNode)
       e.target.blur()
     })
 
-    window.addEventListener('resize',
-      View.throttle(this.switchParallax, 1000)
-    )
+    this.workGallery.addEventListener('click', e => {
+      const link = e.target.closest('a')
+      if (link && link.id === 'blank') {
+        e.preventDefault()
+      }
+    })
 
-    document.getElementById('work-gallery')
-      .addEventListener('click', (e) => {
-        const link = e.target.closest('a')
-        if (link && link.hash === '') {
-          e.preventDefault()
-        }
-      })
+    this.workGallery.addEventListener('keydown', e => {
+      if (e.key === "Enter") {
+        e.target.childNodes.forEach(elem => {
+          if (elem.tagName === 'A') {
+            window.open(elem.href, '_blank')
+          }
+        })
+      }
+    })
+
+    const mediaUpXL = "(min-width: 1200px)"
+    const mediaQueryListSM = window.matchMedia(mediaUpXL)
+    mediaQueryListSM.addEventListener("change", () => {
+      this.switchParallax()
+    })
 
     window.addEventListener('load', () => {
       this.preCacheImages(this.exWork)
     })
 
+    // window.addEventListener('focusin', event => {
+    //   console.log(event.target);
+    // })
   }
 
   static createElement(tag, ...classNames) {
@@ -99,7 +116,7 @@ export default class View {
     return wrapper
   }
 
-  copyToClipboard = (node) => {
+  copyToClipboard = node => {
     const range = new Range()
     const selection = window.getSelection()
     range.selectNodeContents(node)
@@ -189,7 +206,7 @@ export default class View {
   }
 
   createParallax(targetSelector) {
-    if (window.innerWidth >= 1200) {
+    if (window.innerWidth >= this.XLResolution) {
       this.relaxx = new Rellax(targetSelector, {
         center: false,
         wrapper: null,
@@ -202,14 +219,14 @@ export default class View {
   }
 
   switchParallax = () => {
-      if (window.innerWidth >= 1200) {
-        if (this.isParallaxed) return
-        this.createParallax('.rellax')
-        this.isParallaxed = true
-      } else if (this.isParallaxed) {
-        this.relaxx.destroy()
-        this.isParallaxed = false
-      }
+    if (window.innerWidth >= this.XLResolution) {
+      if (this.isParallaxed) return
+      this.createParallax('.rellax')
+      this.isParallaxed = true
+    } else if (this.isParallaxed) {
+      this.relaxx.destroy()
+      this.isParallaxed = false
+    }
   }
 
   preCacheImages(container) {
@@ -220,4 +237,5 @@ export default class View {
       return image
     })
   }
+
 }

@@ -64,6 +64,10 @@ const plugins = () => {
         to: path.resolve(__dirname, 'dist/assets/images')
       },
       {
+        from: path.resolve(__dirname, 'src/assets/video'),
+        to: path.resolve(__dirname, 'dist/assets/video')
+      },
+      {
         from: path.resolve(__dirname, 'src/settings.json'),
         to: path.resolve(__dirname, 'dist')
       },

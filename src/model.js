@@ -13,9 +13,7 @@ export default class Model {
   }
 
   static sleep(ms) {
-    return new Promise(resolve => {
-      setTimeout(() => resolve(), ms)
-    })
+    return new Promise(r => setTimeout(r, ms))
   }
 
 }

@@ -16,7 +16,7 @@ export class Modal {
   }
 
   handleKeyDown = e => {
-    if (event.key === 'Escape') {
+    if (e.key === 'Escape') {
       e.preventDefault()
       this.close()
     }

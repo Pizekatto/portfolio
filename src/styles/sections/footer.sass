@@ -54,9 +54,31 @@ footer
     @include media-breakpoint-up(xl)
       font-size: 1rem
       margin: 0
+    &_watsapp, &_telegram, &_tel
+      &::before
+        display: inline-block
+        content: ''
+        vertical-align: middle
+        width: 1.5rem
+        height: 1.5rem
+        margin-right: .75rem
+        background-size: 100% 100%
+        @include media-breakpoint-up(xl)
+          width: 1.25rem
+          height: 1.25rem
     &_tel
+      &::before
+        background-image: url(../assets/images/phone-icon.svg)
       @include media-breakpoint-up(xl)
         margin-top: 1rem
+    &_watsapp
+      margin-top: .5rem
+      &::before
+        background-image: url(../assets/images/watsapp-icon.svg)
+    &_telegram
+      margin-top: .5rem
+      &::before
+        background-image: url(../assets/images/telegram-icon.svg)
   &-mail
     border-radius: $border-radius-lg
     transition: $transition-base

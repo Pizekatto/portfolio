@@ -101,23 +101,23 @@
       <div class="gallery-container">
         <ul class="gallery_p" id="work-gallery">
           <li class="gallery__item">
-            <a class="gallery__link_p" href="#">
-              <picture>
-                <source srcset="./assets/images/portfolio/1.webp" type="image/webp">
-                <img class="gallery__image_p" src="./assets/images/portfolio/1.png" alt="First work">
-              </picture>
-            </a>
+            <div class="gallery__link_p sprite" tabindex="0">
+              <div class="work-controls">
+                <a class="work-icon work-link-github" href="https://github.com/Pizekatto/neon" target="_blank" rel="noopener noreferrer" id="github" tabindex="-1"></a>
+              </div>
+              <a class="work-view-link" href="https://pizekatto.github.io/neon/" target="_blank" rel="noopener noreferrer" tabindex="-1">Cмотреть</a>
+            </div>
           </li>
           <li class="gallery__item">
-            <a class="gallery__link_p" href="#">
+            <a class="gallery__link_p" href="#" id="blank">
               <picture>
                 <source srcset="./assets/images/portfolio/2.webp" type="image/webp">
-                <img class="gallery__image_p" src="./assets/images/portfolio/2.png" alt="Second Work">
+                <img class="gallery__image_p" src="./assets/images/portfolio/3.png" alt="Third Work">
               </picture>
             </a>
           </li>
           <li class="gallery__item">
-            <a class="gallery__link_p" href="#">
+            <a class="gallery__link_p" href="#" id="blank">
               <picture>
                 <source srcset="./assets/images/portfolio/3.webp" type="image/webp">
                 <img class="gallery__image_p" src="./assets/images/portfolio/3.png" alt="Third Work">
@@ -125,7 +125,7 @@
             </a>
           </li>
           <li class="gallery__item">
-            <a class="gallery__link_p" href="#">
+            <a class="gallery__link_p" href="#" id="blank">
               <picture>
                 <source srcset="./assets/images/portfolio/4.webp" type="image/webp">
                 <img class="gallery__image_p" src="./assets/images/portfolio/4.png" alt="Fourth Work">
@@ -133,10 +133,10 @@
             </a>
           </li>
           <li class="gallery__item">
-            <a class="gallery__link_blank" href="#" aria-label="Blank"></a>
+            <a class="gallery__link_blank" href="#" aria-label="Blank" id="blank"></a>
           </li>
           <li class="gallery__item">
-            <a class="gallery__link_blank" href="#" aria-label="Blank"></a>
+            <a class="gallery__link_blank" href="#" aria-label="Blank" id="blank"></a>
           </li>
         </ul>
       </div>
@@ -259,7 +259,7 @@
         </li>
         <li class="stage" id="stage-2020">
           <div class="stage__title">
-            <h4 class="stage__title-text mb-0 text-right">Fronend разработчик</h4>
+            <h4 class="stage__title-text mb-0 text-right">Frontend разработчик</h4>
           </div>
           <div class="stage__year">
             <span class="year-circle" tabindex="0">2020</span>
@@ -278,9 +278,17 @@
       <li class="footer-item">
         <div class="footer-item__block">
           <h3 class="footer-title">Сергей Ковальчук</h3>
-          <a class="footer-link footer-link_tel" href="tel:+79615922103">+7 961 592-21-03</a>
-          <div class="footer__links">
-          </div>
+          <ul>
+            <li>
+              <a class="footer-link footer-link_tel" href="tel:+79615922103">+7 961 592-21-03</a>
+            </li>
+            <li>
+              <a class="footer-link footer-link_watsapp" href="https://wa.me/79615922103" target="_blank" rel="noopener noreferrer">Watsapp</a>
+            </li>
+            <li>
+              <a class="footer-link footer-link_telegram" href="https://t.me/PizekattoX" target="_blank" rel="noopener noreferrer">Telegram</a>
+            </li>
+          </ul>
         </div>
       </li>
       <li class="footer-item footer-item_mail">
