@@ -5,8 +5,10 @@ import { fileURLToPath } from 'url'
 import fs from 'fs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const res = fs.readFileSync('./src/data.json', 'utf-8')
+const res = fs.readFileSync('./src/settings.json', 'utf-8')
 const data = JSON.parse(res)
+
+console.log(path.join(__dirname, 'src/assets/images'));
 
 const config = {
   // context: path.resolve(__dirname, 'src'),
@@ -19,12 +21,12 @@ const config = {
     clean: true
   },
   resolve: {
-    extensions: ['.ts', '.js', 'json']
+    extensions: ['.ts', '.js', '.json']
   },
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: './src/index.pug',
+      template: './src/index.html',
       templateParameters: data
     }),
     new MiniCssExtractPlugin({
@@ -33,6 +35,10 @@ const config = {
   ],
   module: {
     rules: [
+      {
+        test: /\.html$/i,
+        loader: "html-loader",
+      },
       {
         test: /\.css$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
@@ -48,9 +54,9 @@ const config = {
         loader: 'ts-loader'
       },
       {
-        test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
+        test: /\.(ico|gif|png|jpg|jpeg)$/i,
         type: 'asset/resource',
-        include: path.join(__dirname, 'src/images/'),
+        include: path.join(__dirname, 'src/assets/images'),
         generator: {
           filename: 'images/[name][ext][query]'
         }

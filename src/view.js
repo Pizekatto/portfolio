@@ -1,6 +1,6 @@
 import Progress from './progress'
 import svgImages from './svg'
-import {ModalImage} from './modal'
+import { ModalImage } from './modal'
 import Collapse from './collapse'
 import MoreMenu from './more'
 import Rellax from 'rellax'
@@ -12,7 +12,7 @@ export default class View {
     this.exWork = document.getElementById('ex-work')
     this.workGallery = document.getElementById('work-gallery')
     new Collapse(this.exWork.querySelector('#more-info'),
-                  this.exWork)
+      this.exWork)
     new MoreMenu(document.querySelector('.more'))
     this.XLResolution = 1200
     this.createParallax('.rellax')
@@ -61,9 +61,9 @@ export default class View {
       this.switchParallax()
     })
 
-    window.addEventListener('load', () => {
-      this.preCacheImages(this.exWork)
-    })
+    // window.addEventListener('load', () => {
+    //   this.preCacheImages(this.exWork)
+    // })
 
     // window.addEventListener('focusin', event => {
     //   console.log(event.target);
@@ -144,13 +144,13 @@ export default class View {
     }
   }
 
-  createProgressList({timeline}) {
+  createProgressList({ timeline }) {
     const listData = timeline['stage-2020']['stage-content']['skills']
 
-    const progressList =  View.createElement('ul', 'progress-list')
+    const progressList = View.createElement('ul', 'progress-list')
 
     const progressListItems = listData.map((item) => {
-      const {title, level, color, isAnimated} = item
+      const { title, level, color, isAnimated } = item
       const progressListItem = View.createElement('li', 'progress-list__item')
       progressListItem.insertAdjacentHTML('afterbegin', svgImages[title])
       const progressBar = new Progress({

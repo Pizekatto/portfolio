@@ -8,30 +8,30 @@
     "start": "webpack serve --open --mode development",
     "build": "webpack --mode production"
   },
-  "type": "module",
   "keywords": [
     "portfolio"
   ],
   "author": "sk <sk@ihomepro.ru>",
   "license": "ISC",
   "devDependencies": {
-    "css-loader": "^6.5.1",
-    "html-webpack-plugin": "^5.5.0",
-    "mini-css-extract-plugin": "^2.4.5",
-    "sass": "^1.44.0",
-    "sass-loader": "^12.4.0",
+    "css-loader": "^6.8.1",
+    "gh-pages": "^5.0.0",
+    "html-loader": "^4.2.0",
+    "html-webpack-plugin": "^5.5.3",
+    "mini-css-extract-plugin": "^2.7.6",
+    "sass": "^1.63.6",
+    "sass-loader": "^13.3.2",
     "simple-pug-loader": "^0.2.1",
-    "ts-loader": "^9.2.6",
+    "ts-loader": "^9.4.4",
     "tslint": "^6.1.3",
-    "typescript": "^4.5.2",
-    "webpack": "^5.65.0",
-    "webpack-cli": "^4.9.1",
-    "webpack-dev-server": "^4.6.0",
-    "gh-pages": "^2.2.0"
+    "typescript": "^5.1.6",
+    "webpack": "^5.88.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
     "@babel/polyfill": "^7.8.7",
-    "bootstrap": "^4.4.1",
+    "bootstrap": "^4.6.2",
     "rellax": "^1.12.1"
   },
   "browserslist": "> 0.25%, not dead"
