@@ -61,9 +61,9 @@ export default class View {
       this.switchParallax()
     })
 
-    window.addEventListener('load', () => {
-      this.preCacheImages(this.exWork)
-    })
+    // window.addEventListener('load', () => {
+    //   this.preCacheImages(this.exWork)
+    // })
 
     // window.addEventListener('focusin', event => {
     //   console.log(event.target);
