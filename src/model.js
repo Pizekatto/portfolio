@@ -1,11 +1,14 @@
+import settings from './settings.json'
+
 export default class Model {
-  constructor() {
-    this.url = './settings.json'
-  }
+  // constructor() {
+  //   this.url = './settings.json'
+  // }
 
   async getSettings() {
-    const response = await fetch(this.url)
-    return await response.json()
+    return settings
+    // const response = await fetch(this.url)
+    // return await response.json()
   }
 
   bindSettingsChanged(callback) {
