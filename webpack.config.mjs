@@ -14,7 +14,7 @@ const config = {
     app: ['./src/index.js']
   },
   output: {
-    filename: '[name].js',
+    filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
   },
   resolve: {
@@ -25,6 +25,11 @@ const config = {
       ".mjs": [".mjs", ".mts"]
     }
   },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
+  },
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
@@ -32,7 +37,7 @@ const config = {
       templateParameters: data
     }),
     new MiniCssExtractPlugin({
-      filename: 'app.css'
+      filename: '[name].css'
     }),
   ],
   module: {
