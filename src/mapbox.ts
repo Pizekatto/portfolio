@@ -2,9 +2,10 @@ import mapboxgl from 'mapbox-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import settings from './settings.json'
 import { Coordinates } from './interfaces'
+import { LngLat } from '@yandex/ymaps3-types'
 
 export class MapBox {
-  startingСenter: [number, number] = settings.mapboxgl.center as Coordinates
+  startingСenter = settings.mapboxgl.center as Coordinates
   map: any
   mapLoaded: boolean = false
   secondsPerRevolution = 120 // оборот раз в 2мин
@@ -12,6 +13,7 @@ export class MapBox {
   slowSpinZoom = 3 // среднее вращение на зуме 3-5
   userInteracting = false
   spinEnabled = true
+  geolocation!: LngLat
 
   private constructor() {
     this.create()
@@ -23,6 +25,10 @@ export class MapBox {
     this.mapLoaded = true
     this.configureMap()
     this.spinGlobe()
+    await ymaps3.ready
+    const geolocation = await ymaps3.geolocation.getPosition()
+    this.geolocation = geolocation.coords
+    console.log('Geolocation', this.geolocation)
   }
 
   async createMap() {
@@ -51,10 +57,23 @@ export class MapBox {
     this.map.on('mouseover', () => {
       this.userInteracting = true
       this.map.stop()
+      console.log(this.geolocation)
+      this.map.flyTo({
+        center: this.geolocation,
+        zoom: 13,
+        speed: 1.8
+      })
     })
     this.map.on('mouseout', () => {
       this.userInteracting = false
       this.spinGlobe()
+      // this.map.setCenter(this.startingСenter)
+      // this.map.zoomTo(0.4)
+      this.map.flyTo({
+        center: this.startingСenter,
+        zoom: 0.4,
+        speed: 1.8
+      })
     })
   }
 

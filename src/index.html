@@ -29,6 +29,7 @@
     <link rel="icon"
           href="./assets/images/favicon.png"
           type="image/png">
+
   </head>
 
   <body>
@@ -136,7 +137,7 @@
           </ul>
         </div>
       </header>
-      <div class="container-sm df jcc">
+      <!-- <div class="container-sm df jcc">
         <div class="gallery-container">
           <ul class="gallery_p"
               id="work-gallery">
@@ -214,16 +215,28 @@
             </li>
           </ul>
         </div>
-      </div>
+      </div> -->
       <div class="container-sm df jcc">
         <ul class="new-gallery_grid"
             id="work-gallery">
           <li class="new-gallery__item"
               id="map">
-            <a class="new-gallery__link_blank"
-               href="#"
-               aria-label="Blank"
-               id="blank"></a>
+            <div class="new-gallery__link_p sprite"
+                 tabindex="0">
+              <div class="work-controls">
+                <a class="work-icon work-link-github"
+                   href="https://github.com/Pizekatto/space-club"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   id="github"></a>
+              </div>
+              <a class="work-view-link"
+                 href="https://pizekatto.github.io/space-club/"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 tabindex="-1">Cмотреть</a>
+
+            </div>
           </li>
           <li class="new-gallery__item">
             <div class="new-gallery__link_p sprite"
@@ -569,6 +582,9 @@
         </li>
       </ul>
     </footer>
+    <script src="//api-maps.yandex.ru/3.0/?apikey=1a9c03e8-b71a-46a1-830a-1c6a04d8057e&lang=ru-RU"
+            type="text/javascript">
+            </script>
 
   </body>
 
