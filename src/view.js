@@ -4,6 +4,7 @@ import { ModalImage } from './modal'
 import Collapse from './collapse'
 import MoreMenu from './more'
 import Rellax from 'rellax'
+import { MapBox } from './mapbox'
 
 
 export default class View {
@@ -16,8 +17,8 @@ export default class View {
     new MoreMenu(document.querySelector('.more'))
     this.XLResolution = 1200
     this.createParallax('.rellax')
-
     this._initLocalListeners()
+    new MapBox()
   }
 
 
@@ -61,13 +62,10 @@ export default class View {
       this.switchParallax()
     })
 
-    // window.addEventListener('load', () => {
-    //   this.preCacheImages(this.exWork)
-    // })
+    window.addEventListener('load', () => {
+      this.preCacheImages(this.exWork)
+    })
 
-    // window.addEventListener('focusin', event => {
-    //   console.log(event.target);
-    // })
   }
 
   static createElement(tag, ...classNames) {

@@ -1,28 +1,38 @@
-.gallery-container
-  max-width: 720px
-  width: 100%
-  margin-bottom: 1.5rem
-.gallery
+
+.new-gallery
   display: flex
   flex-wrap: wrap
   margin: -1.66%
-  margin-bottom: 1.5rem
-  &_p
-    display: flex
+  &_grid
+    display: grid
+    grid-template-columns: repeat(3, 1fr)
+    grid-gap: 20px
+    max-width: 720px
+    width: 100%
     flex-wrap: wrap
     flex-basis: 100%
     margin: 0
+    margin-bottom: 1.5rem
   &__item
     position: relative
-    width: 30%
-    flex-basis: 30%
-    padding-bottom: 30%
-    margin: 1.66%
+    width: 100%
+    padding-bottom: 100%
+    border-radius: 1rem
+    // width: 30%
+    // flex-basis: 30%
+    // padding-bottom: 30%
+    // margin: 1.66%
+    &:first-child
+      grid-column: span 2
+      padding-bottom: 50%
+    &:nth-child(2)
+      grid-row: span 2
+
   &__link
     position: absolute
     width: 100%
     height: 100%
-    border-radius: $border-radius-lg
+    // border-radius: $border-radius-lg
     transition: all .2s ease-in-out
     &:hover, &:focus
       box-shadow: 0 3px 4px 1px $gray-600
@@ -40,13 +50,13 @@
         animation: bg-scroll linear infinite paused
         &:hover, &:focus
           animation-play-state: running
-        .gallery__item:nth-of-type(1) &
+        .new-gallery__item:nth-of-type(2) &
           background-image: url(../assets/images/portfolio/work-3.png)
           animation-duration: 8s
-        .gallery__item:nth-of-type(2) &
+        .new-gallery__item:nth-of-type(3) &
           background-image: url(../assets/images/portfolio/work-1.png)
           animation-duration: 10s
-        .gallery__item:nth-of-type(3) &
+        .new-gallery__item:nth-of-type(4) &
           background-image: url(../assets/images/portfolio/work-2.png)
           animation-duration: 25s
     &_blank
@@ -71,7 +81,7 @@
       border-radius: 1rem
       transition: transform .1s ease-in-out
       outline: none
-      .gallery__link_p:focus &
+      .new-gallery__link_p:focus &
         transform: rotateX(20deg) rotateY(20deg)
 
 .work
@@ -91,7 +101,7 @@
     transform: translateY(-100%)
     transition: $transition-base
     // @include media-breakpoint-up(md)
-    .gallery__link_p:hover &, .gallery__link_p:focus &
+    .new-gallery__link_p:hover &, .new-gallery__link_p:focus &
       visibility: visible
       opacity: 1
       transform: translateY(0%)
@@ -138,7 +148,7 @@
     &:hover, &:focus
       background-color: #ff5c1d
       color: #fff
-    .gallery__link_p:hover &, .gallery__link_p:focus &
+    .new-gallery__link_p:hover &, .new-gallery__link_p:focus &
       visibility: visible
       opacity: 1
 

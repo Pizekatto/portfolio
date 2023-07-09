@@ -3,7 +3,6 @@ import HtmlWebpackPlugin from 'html-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import { fileURLToPath } from 'url'
 import fs from 'fs'
-import CopyPlugin from "copy-webpack-plugin"
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const res = fs.readFileSync('./src/settings.json', 'utf-8')
@@ -17,10 +16,14 @@ const config = {
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
-    clean: true
   },
   resolve: {
-    extensions: ['.ts', '.js', '.json']
+    extensions: ['.ts', '.js', '.json'],
+    extensionAlias: {
+      ".js": [".js", ".ts"],
+      ".cjs": [".cjs", ".cts"],
+      ".mjs": [".mjs", ".mts"]
+    }
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -31,38 +34,42 @@ const config = {
     new MiniCssExtractPlugin({
       filename: 'app.css'
     }),
-    new CopyPlugin({
-      patterns: [
-        { from: "src/assets/images/work/full-res", to: "assets/images/work/full-res" }
-      ],
-    }),
   ],
   module: {
     rules: [
       {
         test: /\.html$/i,
         loader: "html-loader",
+        options: {
+          sources: {
+            list: [
+              "...",
+              {
+                tag: "img",
+                attribute: "data-src",
+                type: "src",
+              }
+            ]
+          }
+        }
       },
       {
         test: /\.css$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
-        include: path.join(__dirname, 'src/styles/')
+        // include: path.join(__dirname, 'src/styles/')
       },
       {
         test: /\.s[ac]ss$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
         include: path.join(__dirname, 'src/styles/')
       },
-      {
-        test: /\.tsx?$/,
-        loader: 'ts-loader'
-      },
+      { test: /\.([cm]?ts|tsx)$/, loader: "ts-loader" },
       {
         test: /\.(ico|gif|png|jpg|jpeg)$/i,
         type: 'asset/resource',
         include: path.join(__dirname, 'src/assets/images'),
         generator: {
-          filename: 'assets/images/[name][ext][query]'
+          filename: 'assets/images/[name]-[hash][ext][query]'
         }
       },
       {
@@ -98,5 +105,6 @@ const config = {
 export default (env, argv) => {
   const isProd = argv.mode === 'production'
   config.devtool = isProd ? false : 'eval-cheap-module-source-map'
+  config.output.clean = isProd
   return config
 }
