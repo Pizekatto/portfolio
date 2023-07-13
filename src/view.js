@@ -11,14 +11,19 @@ export default class View {
   constructor() {
     this.timeline = document.querySelector('.timeline')
     this.exWork = document.getElementById('ex-work')
+    this.exWork2 = document.getElementById('ex-work-2')
     this.workGallery = document.getElementById('work-gallery')
+    this.mapTag = document.getElementById('map')
+    this.workViewLink = document.getElementById('work-view-link')
     new Collapse(this.exWork.querySelector('#more-info'),
       this.exWork)
+    new Collapse(this.exWork2.querySelector('#more-info-2'),
+      this.exWork2)
     new MoreMenu(document.querySelector('.more'))
     this.XLResolution = 1200
     this.createParallax('.rellax')
     this._initLocalListeners()
-    new MapBox()
+    // new MapBox(this.mapTag)
   }
 
 
@@ -65,7 +70,6 @@ export default class View {
     window.addEventListener('load', () => {
       this.preCacheImages(this.exWork)
     })
-
   }
 
   static createElement(tag, ...classNames) {

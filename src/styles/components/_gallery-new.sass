@@ -6,27 +6,51 @@
   &_grid
     display: grid
     grid-template-columns: repeat(3, 1fr)
-    grid-gap: 20px
     max-width: 720px
     width: 100%
-    flex-wrap: wrap
-    flex-basis: 100%
     margin: 0
     margin-bottom: 1.5rem
+    @include media-breakpoint-up(xs)
+      grid-gap: 2vw
+      grid-template-rows: 1fr 2fr
+    @include media-breakpoint-up(sm)
+      grid-template-rows: none
+      grid-gap: 1vw
   &__item
     position: relative
-    width: 100%
-    padding-bottom: 100%
     border-radius: 1rem
-    // width: 30%
-    // flex-basis: 30%
-    // padding-bottom: 30%
-    // margin: 1.66%
-    &:first-child
-      grid-column: span 2
-      padding-bottom: 50%
+    box-shadow: 0 6px 30px rgb(0 0 0 / 30%)
+    animation: bg-scroll linear infinite paused
+    background-size: 100%
+    &:hover, &:focus
+      animation-play-state: running
+    &:nth-child(1)
+      z-index: 0
+      @include media-breakpoint-up(xs)
+        aspect-ratio: 3/1
+        grid-column: span 3
+      @include media-breakpoint-up(sm)
+        aspect-ratio: initial
+        padding-bottom: 50%
+        grid-column: span 2
     &:nth-child(2)
-      grid-row: span 2
+      background-image: url(../assets/images/portfolio/work-3.png)
+      animation: none
+      // animation-duration: 8s
+      @include media-breakpoint-up(xs)
+        grid-column: 1 / 3
+      @include media-breakpoint-up(sm)
+        grid-column: auto
+        grid-row: span 2
+        order: 0
+        padding-bottom: 200% // fallback для aspect-ratio
+    &:nth-child(3)
+      background-image: url(../assets/images/portfolio/work-1.png)
+      animation-duration: 10s
+      aspect-ratio: 1/1
+    &:nth-child(4)
+      background-image: url(../assets/images/portfolio/work-2.png)
+      animation-duration: 25s
 
   &__link
     position: absolute
@@ -34,31 +58,8 @@
     height: 100%
     // border-radius: $border-radius-lg
     transition: all .2s ease-in-out
-    &:hover, &:focus
-      box-shadow: 0 3px 4px 1px $gray-600
-    &_p
-      position: absolute
-      width: 100%
-      height: 100%
-      border-radius: 1rem
-      transform-style: preserve-3d
-      perspective: 700px
-      outline: none
-      &.sprite
-        background-size: 100%
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.075)
-        animation: bg-scroll linear infinite paused
-        &:hover, &:focus
-          animation-play-state: running
-        .new-gallery__item:nth-of-type(2) &
-          background-image: url(../assets/images/portfolio/work-3.png)
-          animation-duration: 8s
-        .new-gallery__item:nth-of-type(3) &
-          background-image: url(../assets/images/portfolio/work-1.png)
-          animation-duration: 10s
-        .new-gallery__item:nth-of-type(4) &
-          background-image: url(../assets/images/portfolio/work-2.png)
-          animation-duration: 25s
+    // &:hover, &:focus
+    //   box-shadow: 0 3px 4px 1px $gray-600
     &_blank
       position: absolute
       width: 100%
@@ -84,9 +85,54 @@
       .new-gallery__link_p:focus &
         transform: rotateX(20deg) rotateY(20deg)
 
+.info-patches
+  pointer-events: none
+  position: absolute
+  z-index: 1
+  left: 0
+  top: 0
+  height: 30px
+  margin: 3px 3px 3px 5px
+  padding: 2px 5px
+  display: flex
+  align-items: center
+  border-radius: 5px
+  // box-shadow: 0 4px 8px 1px rgba(0, 0, 0, .2)
+  // visibility: hidden
+  transition: $transition-base
+  // opacity: 0
+  // transform: translateY(-100%)
+  // visibility: visible
+  // opacity: 1
+
+  // .new-gallery__item:hover &
+  //   visibility: visible
+  //   opacity: 1
+  //   transform: translateY(0%)
+
+.patch
+  height: 100%
+  display: flex
+  align-items: center
+  border-radius: 5px
+  padding: 3px 6px 3px 3px
+  &-new
+    color: #fff
+    background-color: #ff6f00
+    &-icon
+      height: 100%
+      fill: #fff
+    &-text
+      font-weight: bold
+      font-family: monospace
+      font-size: 15px
+      letter-spacing: 1px
+      margin-left: 12px
+
 .work
   &-controls
     position: absolute
+    z-index: 1
     display: flex
     align-items: center
     top: 0
@@ -101,7 +147,7 @@
     transform: translateY(-100%)
     transition: $transition-base
     // @include media-breakpoint-up(md)
-    .new-gallery__link_p:hover &, .new-gallery__link_p:focus &
+    .new-gallery__item:hover &
       visibility: visible
       opacity: 1
       transform: translateY(0%)
@@ -119,12 +165,13 @@
     &::before
       background-image: url(../assets/images/github-icon.svg)
   &-view-link
-    visibility: hidden
-    opacity: 0
     position: absolute
+    z-index: 1
     top: 85%
     left: 50%
-    margin-top: -1.25rem
+    visibility: hidden
+    opacity: 0
+    // margin-top: -1.25rem
     width: 80%
     margin-left: -40%
     padding: .25rem .25rem
@@ -148,9 +195,14 @@
     &:hover, &:focus
       background-color: #ff5c1d
       color: #fff
-    .new-gallery__link_p:hover &, .new-gallery__link_p:focus &
+    .new-gallery__item:hover &
       visibility: visible
       opacity: 1
+    .new-gallery__item:nth-child(1) &
+      top: 11%
+      width: 25%
+      margin-left: -12.5%
+
 
 @keyframes bg-scroll
   0%
