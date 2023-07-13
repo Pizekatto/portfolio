@@ -10,11 +10,11 @@
     width: 100%
     margin: 0
     margin-bottom: 1.5rem
-    @include media-breakpoint-up(xs)
-      grid-gap: 2vw
-      grid-template-rows: 1fr 2fr
+    grid-gap: 2vw
+    grid-template-rows: repeat(4, 1fr)
     @include media-breakpoint-up(sm)
       grid-template-rows: none
+    @include media-breakpoint-up(md)
       grid-gap: 1vw
   &__item
     position: relative
@@ -26,20 +26,22 @@
       animation-play-state: running
     &:nth-child(1)
       z-index: 0
-      @include media-breakpoint-up(xs)
-        aspect-ratio: 3/1
-        grid-column: span 3
+      grid-column: span 3
+      grid-row: span 2
       @include media-breakpoint-up(sm)
-        aspect-ratio: initial
-        padding-bottom: 50%
+        grid-row: auto
+        aspect-ratio: 2/1
         grid-column: span 2
     &:nth-child(2)
       background-image: url(../assets/images/portfolio/work-3.png)
-      animation: none
-      // animation-duration: 8s
-      @include media-breakpoint-up(xs)
-        grid-column: 1 / 3
+      animation: bg-scroll linear infinite paused
+      animation-duration: 8s
+      grid-column: 2/4
+      grid-row: 3/5
+      &:hover, &:focus
+        animation-play-state: running
       @include media-breakpoint-up(sm)
+        animation-duration: 5s
         grid-column: auto
         grid-row: span 2
         order: 0

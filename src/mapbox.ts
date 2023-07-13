@@ -8,7 +8,7 @@ export class MapBox {
   startingСenter = settings.mapboxgl.center as Coordinates
   map: any
   defaultCoordinates = settings.mapboxgl.default
-  secondsPerRevolution = 120 // оборот раз в 2мин
+  secondsPerRevolution = 30 // оборот раз в 2мин
   maxSpinZoom = 5 // больше 5го зума - не поворачивать
   slowSpinZoom = 3 // среднее вращение на зуме 3-5
   userInteracting = false

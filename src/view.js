@@ -23,7 +23,7 @@ export default class View {
     this.XLResolution = 1200
     this.createParallax('.rellax')
     this._initLocalListeners()
-    // new MapBox(this.mapTag)
+    new MapBox(this.mapTag)
   }
 
 
