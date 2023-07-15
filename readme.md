@@ -1,12 +1,4 @@
-## Демо
-
-[Github Pages](https://pizekatto.github.io/portfolio/)
-
-## Запуск
-
-```bash
-npm start
-```
+## [Демо](https://pizekatto.github.io/portfolio/)
 
 ## Компоненты
 
