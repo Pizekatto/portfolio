@@ -130,6 +130,9 @@
       font-size: 15px
       letter-spacing: 1px
       margin-left: 12px
+  &-angular-icon
+    height: 120%
+    margin-left: 5px
 
 .work
   &-controls
@@ -203,10 +206,15 @@
     .new-gallery__item:nth-child(1) &
       top: 11%
       width: 25%
-      margin-left: -12.5%
-      @include media-breakpoint-down(md)
+      margin-left: -6%
+      @include media-breakpoint-up(xs)
+      @include media-breakpoint-up(sm)
         top: 15%
         width: 30%
+      @include media-breakpoint-up(md)
+        margin-left: -12.5%
+        top: 11%
+        width: 25%
 
 
 @keyframes bg-scroll

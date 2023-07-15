@@ -33,8 +33,15 @@
     left: 3.5%
     bottom: 3%
     z-index: -3
+    transform-style: preserve-3d
+    text-shadow: 4px -2px 0px rgb(0 0 0 / 10%)
+    transform: rotateZ(-3deg)
     @include media-breakpoint-up(sm)
       display: inline-block
+    @include media-breakpoint-up(xl)
+      left: 0
+      text-shadow: 6px 0px 0px rgb(0 0 0 / 10%)
+      transform: perspective(800px) rotateY(-45deg) rotateX(4deg) rotateZ(-2deg)
 
 .hero
   position: absolute
@@ -76,6 +83,8 @@
   &-big_blue
     display: none
     background: linear-gradient(45deg, #79f2ff, rgb(56, 121, 255))
+    // filter: blur(1px)
+    box-shadow: 0 0 15px 0px rgb(73 154 255 / 80%)
     @include media-breakpoint-up(md)
       display: block
       width: 150px
@@ -94,9 +103,10 @@
     z-index: -4
     width: 75px
     height: 75px
-    background: linear-gradient(rgba(254,132,100,0.5),rgba(254,110,154,0.5))
     left: 3%
     bottom: 55%
+    background: linear-gradient(rgba(254,132,100,0.5),rgba(254,110,154,0.5))
+    box-shadow: rgb(255 165 167) 0px 0px 10px 0px
     @include media-breakpoint-up(sm)
       left: 50%
       bottom: 55%
@@ -115,6 +125,7 @@
     background: rgba(226,158,25,.55)
     top: 22%
     left: 55%
+    filter: blur(1px)
     @include media-breakpoint-up(sm)
       top: 7%
       left: 35%
@@ -131,6 +142,7 @@
     background: linear-gradient(rgba(51,200,193,0.5),rgba(17,155,210,0.5))
     bottom: 45%
     left: 40%
+    filter: blur(3px)
     @include media-breakpoint-up(sm)
       bottom: 30%
       left: 25%
@@ -143,6 +155,7 @@
     background: linear-gradient(rgba(54,28,193,0.5),rgba(46,130,239,0.5))
     bottom: 25%
     left: 20%
+    filter: blur(1px)
     @include media-breakpoint-up(sm)
       bottom: 0%
       left: 40%
@@ -168,9 +181,11 @@
       width: 80px
       height: 80px
       background: linear-gradient(rgba(51,200,193,0.5), rgba(17,155,210,0.5))
+      filter: blur(2px)
   &_two
     bottom: -9%
     right: 20%
+    filter: blur(1px)
     @include media-breakpoint-up(xl)
       bottom: -50%
       right: 35%

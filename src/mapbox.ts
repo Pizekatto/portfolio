@@ -14,6 +14,7 @@ export class MapBox {
   userInteracting = false
   spinEnabled = true
   geolocation!: LngLat
+  pause = true
 
   private constructor(private mapTag: HTMLElement) {
     this.create()
@@ -23,12 +24,31 @@ export class MapBox {
     mapboxgl.accessToken = settings.mapboxgl.accessToken
     this.map = await this.createMap()
     this.configureMap()
-    this.spinGlobe()
     await ymaps3.ready
     const geolocation = await ymaps3.geolocation.getPosition()
     this.geolocation = geolocation?.coords
     console.log('Geolocation', this.geolocation)
+    new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // console.log('Крутить глобус')
+            this.pause = false
+            this.spinGlobe()
+          } else {
+            // console.log('Стоп глобус')
+            this.pause = true
+            this.map.stop()
+          }
+        })
+      }
+      // {
+      //   threshold: 0.2
+      // }
+    ).observe(document.getElementById('map') as HTMLElement)
   }
+
+  // document.querySelector('section.portfolio')
 
   async createMap() {
     const map = new mapboxgl.Map({
@@ -54,16 +74,17 @@ export class MapBox {
       this.map.getCanvas().style.cursor = ''
     })
     this.map.on('moveend', () => {
-      this.spinGlobe()
+      !this.pause && this.spinGlobe()
     })
     this.map.on('mouseover', (event: MapMouseEvent) => {
+      this.pause = true
       const transitionTo = event.originalEvent.relatedTarget as HTMLElement
       if (this.mapTag.contains(transitionTo)) {
         event.preventDefault()
         return
       }
       this.userInteracting = true
-      this.map.stop()
+      // this.map.stop()
       this.map.flyTo({
         center: this.geolocation || this.defaultCoordinates,
         zoom: 12,
@@ -77,7 +98,8 @@ export class MapBox {
         return
       }
       this.userInteracting = false
-      this.spinGlobe()
+      this.pause = false
+      // this.spinGlobe()
       this.map.flyTo({
         center: this.startingСenter,
         zoom: 0.4,

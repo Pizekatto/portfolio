@@ -5,6 +5,7 @@ import Collapse from './collapse'
 import MoreMenu from './more'
 import Rellax from 'rellax'
 import { MapBox } from './mapbox'
+import { Skills } from './skills'
 
 
 export default class View {
@@ -24,6 +25,7 @@ export default class View {
     this.createParallax('.rellax')
     this._initLocalListeners()
     new MapBox(this.mapTag)
+    new Skills()
   }
 
 

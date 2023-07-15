@@ -1,33 +1,36 @@
 // ----- HEADER ----
-.section-subtitle
-  font-size: 2rem
-  font-weight: 700
+.section
+  &-header
+    user-select: none
+  &-subtitle
+    font-size: 2rem
+    font-weight: 700
   &_thin
     font-weight: 400
-.section-title
-  font-size: 1rem
-  font-weight: 600
-  color: #05de7d
-  text-transform: uppercase
-.section-line
-  line-height: 0.3125rem
-  font-size: 0
-  height: 0.3125rem
-  margin-bottom: .5rem
-  & > li
-    display: inline-block
-    background-color: #05de7d
-    border-radius: 3rem
-    height: 0.3125rem // 5px
-    margin-right: 4px
-    &:nth-child(1)
-      width: 2.5rem // 40px
-    &:nth-child(2)
-      width: 1rem
-    &:nth-child(3)
-      width: 0.625rem // 10px
-    &:nth-child(4)
-      width: 0.3125rem // 5px
+  &-title
+    font-size: 1rem
+    font-weight: 600
+    color: #05de7d
+    text-transform: uppercase
+  &-line
+    line-height: 0.3125rem
+    font-size: 0
+    height: 0.3125rem
+    margin-bottom: .5rem
+    > li
+      display: inline-block
+      background-color: #05de7d
+      border-radius: 3rem
+      height: 0.3125rem // 5px
+      margin-right: 4px
+      &:nth-child(1)
+        width: 2.5rem // 40px
+      &:nth-child(2)
+        width: 1rem
+      &:nth-child(3)
+        width: 0.625rem // 10px
+      &:nth-child(4)
+        width: 0.3125rem // 5px
 
 
 .stamp
